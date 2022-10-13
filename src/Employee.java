@@ -10,7 +10,6 @@ public class Employee {
         this.department = department;
         this.salary = salary;
         this.id = counter++;
-
     }
 
     public int getSalary() {
@@ -29,24 +28,20 @@ public class Employee {
         this.department = department;
     }
 
-
-
     public String getFullName(){
         return this.fullName;
     }
 
 
+
     @Override
     public String toString() {
-        return "Сотрудника {" +
-                "Зарплата = " + salary +
+        return "Сотрудник {" +
+                "ФИО: " + fullName +
                 ", Отдел №" + department +
-                ", ФИО: " + fullName +
-                ", id=" + id +
-                '}';
+                ", Зарплата = " + salary +
+                ", id=" + id
+               + "} \n";
     }
 
-
-
 }
-

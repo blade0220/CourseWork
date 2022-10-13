@@ -1,9 +1,8 @@
-import java.sql.Array;
 import java.util.Arrays;
 
 public class Main {
 
-    private static final Employee[] employees = new Employee[10];
+    private static final Employee[] employees = new Employee [10];
     public static void main(String[] args) {
 
         employees[0] = new Employee("Иванова Анна Викторовна", 1,70_000);
@@ -16,6 +15,10 @@ public class Main {
         employees[7] = new Employee("Любимов Василий Григорьевич", 4, 80_000);
         employees[8] = new Employee("Михайлова Анастасия Генадьевна", 5, 55_000);
         employees[9] = new Employee("Павлов Георгий Афанасьевич", 5, 65_000);
+
+        for (int i = 0; i < employees.length; i++)
+        System.out.println(employees[i].toString());
+
         System.out.println("Итого израсходовано на зарплату сотрудников " + calculateSumSalary());
 
         System.out.println("Максимальная зарплата " + getEmployeeWithMaxSalary());
@@ -23,7 +26,6 @@ public class Main {
         System.out.println("Минимальная зарплата " + getEmployeeWithMinSalary());
         System.out.println("Средняя зарплата равна: " + middleSumSalary());
         printEmployeesName();
-
 
     }
 
@@ -37,13 +39,24 @@ public class Main {
         return sum;
     }
 
-    public static int middleSumSalary() {
-        int sum = 0;
-        for (Employee employee : employees) {
-            if (employee != null) {
-                sum += employee.getSalary() / employees.length;
+
+
+//    for (int i = 0; i < employees.length; i++){
+//        if (employees[i] != null){
+//            System.out.println(employees[i]);
+//        }
+//    }
+
+    public static double middleSumSalary() {
+        double sum = 0;
+        int count = 0;
+        for (int i = 0; i < employees.length; i++){
+            if (employees[i] != null) {
+                count++;
+                sum += employees[i].getSalary();
             }
         }
+        sum = sum / count;
         return sum;
     }
 
